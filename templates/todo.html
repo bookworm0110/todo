@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+
+<head>
+  <h1>Create New</h1>
+  <form action="{{url_for('new')}}" method="POST">
+    <div class="row">
+      <div class="col-2">
+        <label>Name</label>
+      </div>
+      <div class="col-10">
+        <input type="text" name='name' >
+      </div>
+  </form>
+  <title>List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand bg-light">
+  </nav>
+  <h1>View</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+    </thead>
+    <tbody>
+      {%for i in list%}
+      <tr>
+        <td>{{i.name}}</td>
+        <td><a class="btn btn-sm" role="button" href="/complete/{{i.id}}">Mark as Complete</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</body>
+
+</html>
